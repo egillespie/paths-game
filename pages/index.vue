@@ -8,8 +8,8 @@
     <article>
       <figure>
         <figcaption>Project files</figcaption>
-        <ProjectTree
-          :project="game.scenarios[0].project"
+        <file-tree
+          :files="game.scenarios[0].project"
           class="border border-solid border-blue-200 p-2"
         />
       </figure>
@@ -18,12 +18,12 @@
 </template>
 
 <script>
-import ProjectTree from '~/components/ProjectTree'
+import FileTree from '~/components/file-tree'
 import game from '~/game-data.json'
 
 export default {
   components: {
-    ProjectTree
+    FileTree
   },
   data () {
     return {
