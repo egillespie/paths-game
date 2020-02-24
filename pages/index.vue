@@ -1,39 +1,34 @@
 <template>
-  <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        paths-game
+  <main class="p-4">
+    <header>
+      <h1 class="text-5xl text-center">
+        Path Finder
       </h1>
-      <h2 class="subtitle">
-        A browser game for learning website paths
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
-  </div>
+    </header>
+    <article>
+      <figure>
+        <figcaption>Project files</figcaption>
+        <ProjectTree
+          :project="game.scenarios[0].project"
+          class="border border-solid border-blue-200 p-2"
+        />
+      </figure>
+    </article>
+  </main>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import ProjectTree from '~/components/ProjectTree'
+import game from '~/game-data.json'
 
 export default {
   components: {
-    Logo
+    ProjectTree
+  },
+  data () {
+    return {
+      game
+    }
   }
 }
 </script>
