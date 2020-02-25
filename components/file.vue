@@ -30,6 +30,8 @@ export default {
 
 <style>
 .file .file {
-  margin-left: 1.5rem;
+  border-left: 1px dotted lightgray;
+  margin-left: .5rem;
+  padding-left: 1rem;
 }
 </style>
