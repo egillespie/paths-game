@@ -6,8 +6,16 @@
       </h1>
     </header>
     <article>
-      <figure>
-        <figcaption>Project files</figcaption>
+      <figure class="mb-4">
+        <figcaption class="font-semibold">
+          Site URL
+        </figcaption>
+        <code>{{ game.scenarios[0].siteUrl }}</code>
+      </figure>
+      <figure class="mb-4">
+        <figcaption class="font-semibold">
+          Project files
+        </figcaption>
         <file-tree
           :files="game.scenarios[0].project"
           class="border border-solid border-blue-200 p-2"

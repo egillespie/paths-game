@@ -1,8 +1,10 @@
 <template>
   <li class="file leading-5">
-    <img v-if="children" src="@/assets/svg/folder-icon.svg" class="inline h-5">
-    <img v-else src="@/assets/svg/file-icon.svg" class="inline h-5">
-    <code>{{ name }}</code>
+    <span class="inline-block p-1 border border-transparent border-solid hover:border-blue-500 hover:cursor-pointer">
+      <img v-if="children" src="@/assets/svg/folder-icon.svg" class="inline h-6 -mt-1">
+      <img v-else src="@/assets/svg/file-icon.svg" class="inline h-6 -mt-1">
+      <code class="inline">{{ name }}</code>
+    </span>
     <file-tree v-if="children" :files="children" class="file-tree" />
   </li>
 </template>

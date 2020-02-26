@@ -4,12 +4,15 @@
       "question": "What is the relative path from styles.css to bubble-island.jpg?",
       "answer": "../images/bubble-island.jpg",
       "answerType": "relative",
-      "siteRoot": "https://muser.github.io/tea-gazebo/",
+      "siteUrl": "https://muser.github.io/tea-gazebo/",
       "project": {
         "css": {
           "styles.css": null
         },
         "images": {
+          "svg": {
+            "sample.svg": null
+          },
           "bubble-island.jpg": null,
           "homepage.jpg": null
         },
