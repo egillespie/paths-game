@@ -28,8 +28,8 @@
           Question
         </h2>
         <form class="border border-solid border-blue-200 p-2">
-          <label for="answer" class="italic">
-            {{ game.scenarios[0].question }}
+          <label for="answer" class="inline-block mb-1">
+            <render-md :md="game.scenarios[0].question" />
           </label>
           <input
             id="answer"
@@ -46,55 +46,25 @@
 
 <script>
 import FileTree from '~/components/file-tree'
+import RenderMd from '~/components/render-md'
+import mdToHtml from '~/helpers/md-to-html'
 import game from '~/game-data.json'
 
 export default {
   components: {
-    FileTree
+    FileTree,
+    RenderMd
   },
   data () {
     return {
       answer: '',
       game
     }
+  },
+  methods: {
+    toHtml (markdown) {
+      return mdToHtml(markdown)
+    }
   }
 }
 </script>
-
-<style>
-/* Sample `apply` at-rules with Tailwind CSS
-.container {
-  @apply min-h-screen flex justify-center items-center text-center mx-auto;
-}
-*/
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
-</style>

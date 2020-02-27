@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@nuxtjs/svg": "^0.1.6",
+    "markdown-it": "^10.0.0",
     "nuxt": "^2.0.0"
   },
   "devDependencies": {

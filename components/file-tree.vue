@@ -13,6 +13,7 @@
 import File from './file'
 
 export default {
+  name: 'FileTree',
   components: {
     File
   },
