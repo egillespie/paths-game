@@ -5,18 +5,17 @@
       <img v-else src="@/assets/svg/file-icon.svg" class="inline h-6 -mt-1">
       <code class="inline">{{ name }}</code>
     </span>
-    <file-tree v-if="children" :files="children" class="file-tree" />
+    <file-tree
+      v-if="children"
+      :files="children"
+      class="ml-4 border-l border-dotted border-gray-500"
+    />
   </li>
 </template>
 
 <script>
-import FileTree from './file-tree'
-
 export default {
   name: 'File',
-  components: {
-    FileTree
-  },
   props: {
     name: {
       type: String,
@@ -34,10 +33,5 @@ export default {
 <style>
 .file .file {
   margin-left: .625rem;
-}
-
-.file-tree {
-  border-left: 1px dotted lightgray;
-  margin-left: 1rem;
 }
 </style>

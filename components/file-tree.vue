@@ -10,13 +10,8 @@
 </template>
 
 <script>
-import File from './file'
-
 export default {
   name: 'FileTree',
-  components: {
-    File
-  },
   props: {
     files: {
       type: Object,
