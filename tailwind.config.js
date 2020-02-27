@@ -7,6 +7,7 @@
 module.exports = {
   theme: {},
   variants: {
+    borderColor: ['responsive', 'hover', 'focus'],
     cursor: ['responsive', 'hover']
   },
   plugins: []

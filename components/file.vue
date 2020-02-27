@@ -32,11 +32,11 @@ export default {
 
 <style>
 .file .file {
-  margin-left: .8rem;
+  margin-left: .625rem;
 }
 
 .file-tree {
   border-left: 1px dotted lightgray;
-  margin-left: .625rem;
+  margin-left: 1rem;
 }
 </style>

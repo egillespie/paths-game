@@ -6,21 +6,40 @@
       </h1>
     </header>
     <article>
-      <figure class="mb-4">
-        <figcaption class="font-semibold">
+      <section class="mb-4">
+        <h2 class="font-semibold">
           Site URL
-        </figcaption>
-        <code>{{ game.scenarios[0].siteUrl }}</code>
-      </figure>
-      <figure class="mb-4">
-        <figcaption class="font-semibold">
+        </h2>
+        <code class="block border border-solid border-blue-200 p-2">
+          {{ game.scenarios[0].siteUrl }}
+        </code>
+      </section>
+      <section class="mb-4">
+        <h2 class="font-semibold">
           Project files
-        </figcaption>
+        </h2>
         <file-tree
           :files="game.scenarios[0].project"
           class="border border-solid border-blue-200 p-2"
         />
-      </figure>
+      </section>
+      <section class="mb-4">
+        <h2 class="font-semibold">
+          Question
+        </h2>
+        <form class="border border-solid border-blue-200 p-2">
+          <label for="answer" class="italic">
+            {{ game.scenarios[0].question }}
+          </label>
+          <input
+            id="answer"
+            type="text"
+            :value="answer"
+            class="inline-block w-full px-2 py-1 border border-solid border-gray-400 outline-none focus:border-blue-500"
+            placeholder="Type your answer here"
+          >
+        </form>
+      </section>
     </article>
   </main>
 </template>
@@ -35,6 +54,7 @@ export default {
   },
   data () {
     return {
+      answer: '',
       game
     }
   }
