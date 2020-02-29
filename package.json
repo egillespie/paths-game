@@ -5,6 +5,13 @@
   "author": "Erik Gillespie",
   "license": "Hippocratic 2.0",
   "private": true,
+  "bugs": {
+    "url": "https://github.com/egillespie/browsy-paths/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/egillespie/browsy-paths.git"
+  },
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
