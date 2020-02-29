@@ -41,10 +41,12 @@
           </label>
           <input
             id="answer"
+            ref="answer"
+            v-model="answer"
             type="text"
-            :value="answer"
             class="inline-block bg-gray-100 w-full px-2 py-1 border border-solid border-gray-400 outline-none focus:border-blue-500 focus:bg-white"
             placeholder="Type your answer here"
+            @keypress.enter.prevent="checkAnswer"
           >
         </form>
       </section>
@@ -59,7 +61,10 @@
             </game-button>
           </li>
           <li>
-            <game-button>
+            <game-button
+              class="underline"
+              @click="checkAnswer"
+            >
               Check Answer
             </game-button>
           </li>
@@ -112,14 +117,26 @@ export default {
     }
   },
   methods: {
+    checkAnswer () {
+      if (this.answer === this.scenario.answer) {
+        window.alert('You got it! 🎉')
+      } else {
+        window.alert('Sorry, that\'s not right...')
+        this.$refs.answer.focus()
+      }
+    },
     nextScenario () {
       if (!this.isLastScenario) {
+        this.answer = ''
         this.scenarioIndex++
+        this.$refs.answer.focus()
       }
     },
     previousScenario () {
       if (!this.isFirstScenario) {
+        this.answer = ''
         this.scenarioIndex--
+        this.$refs.answer.focus()
       }
     }
   }
