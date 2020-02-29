@@ -8,7 +8,8 @@ module.exports = {
   theme: {},
   variants: {
     borderColor: ['responsive', 'hover', 'focus'],
-    cursor: ['responsive', 'hover']
+    cursor: ['responsive', 'hover'],
+    scale: ['responsive', 'hover', 'focus', 'active']
   },
   plugins: []
 }

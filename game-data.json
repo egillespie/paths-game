@@ -15,6 +15,22 @@
         },
         "index.html": null
       }
+    },
+    {
+      "question": "What is the _root-relative path_ from `styles.css` to `bubble-island.jpg`?",
+      "answer": "/images/bubble-island.jpg",
+      "answerType": "root-relative",
+      "siteUrl": "https://muser-tea-gazebo.surge.sh",
+      "project": {
+        "css": {
+          "styles.css": null
+        },
+        "images": {
+          "bubble-island.jpg": null,
+          "homepage.jpg": null
+        },
+        "index.html": null
+      }
     }
   ]
 }

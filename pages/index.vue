@@ -48,16 +48,43 @@
           >
         </form>
       </section>
+      <nav>
+        <ol class="flex justify-around">
+          <li>
+            <game-button
+              :disabled="isFirstScenario"
+              @click="previousScenario"
+            >
+              Prev
+            </game-button>
+          </li>
+          <li>
+            <game-button>
+              Check Answer
+            </game-button>
+          </li>
+          <li>
+            <game-button
+              :disabled="isLastScenario"
+              @click="nextScenario"
+            >
+              Next
+            </game-button>
+          </li>
+        </ol>
+      </nav>
     </article>
   </main>
 </template>
 
 <script>
+import GameButton from '~/components/game-button'
 import RenderMd from '~/components/render-md'
 import game from '~/game-data.json'
 
 export default {
   components: {
+    GameButton,
     RenderMd
   },
   data () {
@@ -68,6 +95,12 @@ export default {
     }
   },
   computed: {
+    isFirstScenario () {
+      return this.scenarioIndex === 0
+    },
+    isLastScenario () {
+      return this.scenarioIndex === this.game.scenarios.length - 1
+    },
     scenario () {
       return this.game.scenarios[this.scenarioIndex]
     },
@@ -76,6 +109,18 @@ export default {
     },
     scenarioTotal () {
       return this.game.scenarios.length
+    }
+  },
+  methods: {
+    nextScenario () {
+      if (!this.isLastScenario) {
+        this.scenarioIndex++
+      }
+    },
+    previousScenario () {
+      if (!this.isFirstScenario) {
+        this.scenarioIndex--
+      }
     }
   }
 }
