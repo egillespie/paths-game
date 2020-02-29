@@ -1,8 +1,9 @@
 {
-  "name": "paths-game",
+  "name": "browsy-paths",
   "version": "1.0.0",
-  "description": "A browser game for learning website paths",
+  "description": "An interactive tutorial about making links on the Internet.",
   "author": "Erik Gillespie",
+  "license": "Hippocratic 2.0",
   "private": true,
   "scripts": {
     "dev": "nuxt",
@@ -12,16 +13,16 @@
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
   },
   "dependencies": {
-    "@nuxtjs/svg": "^0.1.6",
-    "markdown-it": "^10.0.0",
     "nuxt": "^2.0.0"
   },
   "devDependencies": {
+    "@nuxtjs/svg": "^0.1.6",
     "@nuxtjs/tailwindcss": "^1.0.0",
     "@nuxtjs/eslint-config": "^2.0.0",
     "@nuxtjs/eslint-module": "^1.0.0",
     "babel-eslint": "^10.0.1",
     "eslint": "^6.1.0",
-    "eslint-plugin-nuxt": ">=0.4.2"
+    "eslint-plugin-nuxt": ">=0.4.2",
+    "markdown-it": "^10.0.0"
   }
 }

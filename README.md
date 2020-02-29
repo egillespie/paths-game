@@ -1,6 +1,6 @@
-# paths-game
+# Browsy Paths
 
-> A browser game for learning website paths
+> An interactive tutorial about making links on the Internet.
 
 ## Build Setup
 
@@ -20,3 +20,9 @@ $ npm run generate
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+
+## License
+
+[Hippocratic 2.0](https://github.com/egillespie/browsy-paths/blob/master/LICENSE.md)
+
+&copy; Copyright 2020, [Erik Gillespie](https://twitter.com/eriklgillespie).

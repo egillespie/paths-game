@@ -8,7 +8,7 @@
         an interactive tutorial about making links on the Internet
       </small>
     </header>
-    <article>
+    <article class="mb-8">
       <header>
         <h2 class="text-2xl text-center text-bold">
           Scenario {{ scenarioNumber }} of {{ scenarioTotal }}
@@ -79,6 +79,24 @@
         </ol>
       </nav>
     </article>
+    <footer class="static bottom-0 text-center leading-tight">
+      <small class="block font-semibold mb-1">
+        &copy; Copyright 2020,
+        <a
+          class="text-blue-900 hover:underline"
+          href="https://twitter.com/eriklgillespie"
+          target="_blank"
+        >Erik Gillespie</a>.
+      </small>
+      <small class="block mb-1">
+        Feedback or questions? Submit an issue on
+        <a
+          class="text-blue-900 hover:underline"
+          href="https://github.com/egillespie/browsy-paths"
+          target="_blank"
+        >GitHub</a>.
+      </small>
+    </footer>
   </main>
 </template>
 
