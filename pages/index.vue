@@ -80,7 +80,7 @@
       </nav>
     </article>
     <footer class="static bottom-0 text-center leading-tight">
-      <small class="block font-semibold mb-1">
+      <small class="block mb-1">
         &copy; Copyright 2020,
         <a
           class="text-blue-900 hover:underline"
@@ -89,7 +89,7 @@
         >Erik Gillespie</a>.
       </small>
       <small class="block mb-1">
-        Feedback or questions? Submit an issue on
+        Feedback or questions? Create an issue on
         <a
           class="text-blue-900 hover:underline"
           href="https://github.com/egillespie/browsy-paths"
