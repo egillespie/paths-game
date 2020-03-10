@@ -1,5 +1,43 @@
 <template>
-  <main class="max-w-screen-md p-4 mx-auto">
+  <main
+    class="max-w-screen-md p-4 mx-auto"
+    @keypress.enter.prevent="onEnterKey"
+  >
+    <modal :show="showCheckAnswerModal" @close="closeCheckAnswer">
+      <template v-slot:header>
+        <span v-if="answer === scenario.answer">Yes, that's correct!</span>
+        <span v-else>Sorry, that's incorrect.</span>
+      </template>
+      <template v-slot:content>
+        <p v-if="answer === scenario.answer">
+          Woohoo, you did it. Congratulations! 🎉
+        </p>
+        <p v-else>
+          Pay close attention to the type of path requested
+          as well as the locations of the source and destination.
+          Remember to include the name of the destination, too!
+        </p>
+        <small class="block text-right italic mt-8">
+          <span v-if="!isLastScenario && answer === scenario.answer">
+            Press Enter for the next scenario or Escape to close this popup.
+          </span>
+          <span v-else>
+            Press Escape to close this popup.
+          </span>
+        </small>
+      </template>
+      <template v-slot:footer>
+        <game-button
+          :disabled="answer !== scenario.answer"
+          @click="nextScenarioIfCorrectAnswer"
+        >
+          Next
+        </game-button>
+        <game-button @click="closeCheckAnswer">
+          Close
+        </game-button>
+      </template>
+    </modal>
     <header class="p-4 text-white bg-blue-800 shadow mb-4 text-center">
       <h1 class="text-4xl">
         Browsy Paths
@@ -46,7 +84,6 @@
             type="text"
             class="inline-block bg-gray-100 w-full px-2 py-1 border border-solid border-gray-400 outline-none focus:border-blue-500 focus:bg-white"
             placeholder="Type your answer here"
-            @keypress.enter.prevent="checkAnswer"
           >
         </form>
       </section>
@@ -63,7 +100,7 @@
           <li>
             <game-button
               class="underline"
-              @click="checkAnswer"
+              @click="showCheckAnswer"
             >
               Check Answer
             </game-button>
@@ -102,18 +139,21 @@
 
 <script>
 import GameButton from '~/components/game-button'
+import Modal from '~/components/modal'
 import RenderMd from '~/components/render-md'
 import game from '~/game-data.json'
 
 export default {
   components: {
     GameButton,
+    Modal,
     RenderMd
   },
   data () {
     return {
       answer: '',
       scenarioIndex: 0,
+      showCheckAnswerModal: false,
       game
     }
   },
@@ -135,26 +175,41 @@ export default {
     }
   },
   methods: {
-    checkAnswer () {
-      if (this.answer === this.scenario.answer) {
-        window.alert('You got it! 🎉')
+    showCheckAnswer () {
+      this.showCheckAnswerModal = true
+    },
+    closeCheckAnswer () {
+      this.showCheckAnswerModal = false
+      this.$refs.answer.focus()
+    },
+    clearAndFocusAnswer () {
+      this.answer = ''
+      this.$refs.answer.focus()
+    },
+    onEnterKey () {
+      if (this.showCheckAnswerModal) {
+        this.nextScenarioIfCorrectAnswer()
       } else {
-        window.alert('Sorry, that\'s not right...')
-        this.$refs.answer.focus()
+        this.showCheckAnswer()
       }
     },
     nextScenario () {
       if (!this.isLastScenario) {
-        this.answer = ''
+        this.closeCheckAnswer()
+        this.clearAndFocusAnswer()
         this.scenarioIndex++
-        this.$refs.answer.focus()
+      }
+    },
+    nextScenarioIfCorrectAnswer () {
+      if (this.answer === this.scenario.answer) {
+        this.nextScenario()
       }
     },
     previousScenario () {
       if (!this.isFirstScenario) {
-        this.answer = ''
+        this.closeCheckAnswer()
+        this.clearAndFocusAnswer()
         this.scenarioIndex--
-        this.$refs.answer.focus()
       }
     }
   }
